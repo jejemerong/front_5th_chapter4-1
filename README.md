@@ -2,7 +2,7 @@
 
 ### 배포 파이프라인 프로세스
 
-![아키텍처 다이어그램](/images/diagram.png)
+![아키텍처 다이어그램](/diagram.png)
 
 1. 코드 변경 후 github 에 push
 2. github actions 가 트리거
@@ -148,23 +148,23 @@ Repository secret 은 GitHub Repository에서 API 키, 액세스 토큰, 비밀�
 
 첫번째 사진은 S3 정적 호스팅으로 접근한 응답 헤더고 두번째 사진은 CloudFront 호스팅으로 접근한 응답헤더이다. CloudFront 로 접근할 때 첫번째 요청 이후에는 Cache Hit 로 S3 까지 가지 않고 가장 가까운 엣지 서버에서 즉시 응답한다. 이때 두번째 사진처럼 X-Cache 속성 값이 Hit from cloudfront 로 표시되는 것을 확인할 수 있다.
 
-![S3Cache](/images/S3Cache.png)
+![S3Cache](/S3Cache.png)
 
-![CFCache](/images/CFCache.png)
+![CFCache](/CFCache.png)
 
 그렇기 때문에 페이지가 로딩 되는 속도 또한 단축되고 아래와 같이 첫번째 사진에서는 518ms 의 시간이 소요되지만 두번째 CloudFront 로 배포한 주소로 접근 시 23ms 로 로딩 시간이 약 95.6% 감소한 것을 확인할 수 있다.
 
-![CFLoadTime](/images/CFLoadTime.png)
+![CFLoadTime](/CFLoadTime.png)
 
-![CFLoadTime](/images/CFLoadTime.png)
+![CFLoadTime](/CFLoadTime.png)
 
 #### Core Web Vitals 지표 향상
 
 Lighthouse 를 통해 성능 보고서를 확인할 수 있는데 이때, LCP(Largest Contentful Paint)가 1.8초에서 0.4초로 78% 개선되었고 전체 성능 점수가 90점에서 100점으로 향상되었다.
 
-![S3LightHouse](/images/S3LightHouse.png)
+![S3LightHouse](/S3LightHouse.png)
 
-![CFLightHouse](/images/CFLightHouse.png)
+![CFLightHouse](/CFLightHouse.png)
 
 #### Lighthouse 란?
 
